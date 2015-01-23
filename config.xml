@@ -14,7 +14,7 @@
 		<wire:displayName>History Hive To Linear Graph</wire:displayName>
 		<dcterms:description></dcterms:description>
 		<dcterms:creator rdf:resource="http://creatoruri/"/>
-		<usdl-core:versionInfo>0.8.7</usdl-core:versionInfo>
+		<usdl-core:versionInfo>0.9.1</usdl-core:versionInfo>
 		<wire:hasImageUri rdf:resource="images/catalogue.png"/>
 		<usdl-core:utilizedResource rdf:resource="js/main.js"/>
 		<foaf:page rdf:resource="http://conwet.fi.upm.es/docs/display/wirecloud"/>
@@ -22,7 +22,7 @@
 
 		<vCard:addr>
 			<vCard:Work>
-				<vCard:email>sblanco@conwet.com</vCard:email>
+				<vCard:email>gioakbombaci@gmail.com</vCard:email>
 			</vCard:Work>
 		</vCard:addr>
 		
@@ -34,7 +34,7 @@
 				<wire:type>text</wire:type>
 				<dcterms:description>Hive Server Address</dcterms:description>
 				<rdfs:label>HistoryMod Server URL</rdfs:label>
-				<wire:default>http://130.206.85.112:1027</wire:default>
+				<wire:default>http://130.206.85.25:1027</wire:default>
 			</wire:PlatformPreference>
 		</wire:hasPlatformPreference>
 		<wire:hasPlatformPreference>
@@ -74,11 +74,11 @@
 	</wire:Operator>
 
 	<foaf:Person rdf:about="http://creatoruri/">
-		<foaf:name>sblanco</foaf:name>
+		<foaf:name>Gioak</foaf:name>
 	</foaf:Person>
-
+	
 	<gr:BusinessEntity rdf:about="http://vendoruri/">
-		<foaf:name>CoNWeT</foaf:name>
+		<foaf:name>Ark</foaf:name>
 	</gr:BusinessEntity>
 
 	<foaf:Image rdf:about="images/catalogue.png">

@@ -156,14 +156,30 @@
                         color: '#00A8F0',
                         max: 300,
                         min: -300,
-                        ticks: [-300, -150, -100, -50, 0, 50, 100, 150, 200, 250, 300]
+                        //ticks: [-300, -150, -100, -50, 0, 50, 100, 150, 200, 250, 300]
+                        ticks : null
                     }
                 ],
                 'title': poiID,
                 'leyend': {
                     position: 'ne'
-                }
+                },
+        		'oneData': true
             };
+            MashupPlatform.wiring.pushEvent("OutputStatus", JSON.stringify(config));
+
+            data = [];
+            for (i = parsedResponse.length - 1; i > 0; i -= 1) {
+                // History-Mod internal id
+                //lampObservationId = parsedResponse[i].id;
+            	var elem = JSON.parse(parsedResponse[i]);
+                data.push({
+                    'id': 0,
+                    'value': [elem.date, elem.value],
+                    'label': observed_prop,
+                    'axis': 1
+                });
+            }
         }
         	else if(observed_prop == "pressure"){
                 config = {
@@ -174,14 +190,31 @@
                             color: '#93a600',
                             max: 300,
                             min: 0,
-                            ticks: [0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300]
+                            //ticks: [0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300]
+                            ticks : null
                         }
                     ],
                     'title': poiID,
                     'leyend': {
                         position: 'ne'
-                    }
+                    },
+                    'oneData': true
+                    
                 };
+                MashupPlatform.wiring.pushEvent("OutputStatus", JSON.stringify(config));
+
+                data = [];
+                for (i = parsedResponse.length - 1; i > 0; i -= 1) {
+                    // History-Mod internal id
+                    //lampObservationId = parsedResponse[i].id;
+                	var elem = JSON.parse(parsedResponse[i]);
+                    data.push({
+                        'id': 0,
+                        'value': [elem.date, elem.value],
+                        'label': observed_prop,
+                        'axis': 1
+                    });
+                }
         	}
         	else if(observed_prop == "pm10"){
                 config = {
@@ -192,14 +225,31 @@
                             color: '#CB4B4B',
                             max: 100000,
                             min: 0,
-                            ticks: [0, 10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000]
+                            //ticks: [0, 10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000]
+                            ticks : null
                         }
                     ],
                     'title': poiID,
                     'leyend': {
                         position: 'ne'
-                    }
+                    },
+                    'oneData': true
                 };
+                
+                MashupPlatform.wiring.pushEvent("OutputStatus", JSON.stringify(config));
+
+                data = [];
+                for (i = parsedResponse.length - 1; i > 0; i -= 1) {
+                    // History-Mod internal id
+                    //lampObservationId = parsedResponse[i].id;
+                	var elem = JSON.parse(parsedResponse[i]);
+                    data.push({
+                        'id': 0,
+                        'value': [elem.date, elem.value],
+                        'label': observed_prop,
+                        'axis': 1
+                    });
+                }
         	}
         	
         	/*
@@ -220,45 +270,13 @@
                 ticks: [0, 10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000]
             }
             */
-            MashupPlatform.wiring.pushEvent("OutputStatus", JSON.stringify(config));
+            MashupPlatform.wiring.pushEvent("OutputStatus", JSON.stringify(data));
+            MashupPlatform.wiring.pushEvent("OutputStatus", JSON.stringify('END'));
 
-            data = [];
-            for (i = parsedResponse.length - 1; i > 0; i -= 1) {
-                // History-Mod internal id
-                //lampObservationId = parsedResponse[i].id;
-            	var elem = JSON.parse(parsedResponse[i]);
-            	/*
-                data.push({
-                    'id': 0,
-                    'value': [elem.date, elem.temperature],
-                    'label': 'Temperature',
-                    'axis': 1
-                });
-                data.push({
-                    'id': 1,
-                    'value': [elem.date, elem.pressure],
-                    'label': 'Pressure',
-                    'axis': 2
-                });
-                data.push({
-                    'id': 2,
-                    'value': [elem.date, elem.pm10],
-                    'label': 'PM10',
-                    'axis': 3
-                });
-                */
-                data.push({
-                    'id': 0,
-                    'value': [elem.date, elem.value],
-                    'label': observed_prop,
-                    'axis': 1
-                });
-            }
         // AMMS
         } 
         
-        MashupPlatform.wiring.pushEvent("OutputStatus", JSON.stringify(data));
-        MashupPlatform.wiring.pushEvent("OutputStatus", JSON.stringify('END'));
+
     };
     
     // input callback
