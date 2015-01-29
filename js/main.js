@@ -165,6 +165,7 @@
                     position: 'ne'
                 },
         		'oneData': true
+        		//'colors':'#00A8F0'
             };
             MashupPlatform.wiring.pushEvent("OutputStatus", JSON.stringify(config));
 
@@ -177,7 +178,8 @@
                     'id': 0,
                     'value': [elem.date, elem.value],
                     'label': observed_prop,
-                    'axis': 1
+                    'axis': 1,
+                    'color':'#00A8F0'
                 });
             }
         }
@@ -199,6 +201,7 @@
                         position: 'ne'
                     },
                     'oneData': true
+                    //'colors':'#93a600'
                     
                 };
                 MashupPlatform.wiring.pushEvent("OutputStatus", JSON.stringify(config));
@@ -212,7 +215,8 @@
                         'id': 0,
                         'value': [elem.date, elem.value],
                         'label': observed_prop,
-                        'axis': 1
+                        'axis': 1,
+                        'color':'#93a600'
                     });
                 }
         	}
@@ -234,6 +238,7 @@
                         position: 'ne'
                     },
                     'oneData': true
+                    //'colors': '#CB4B4B'
                 };
                 
                 MashupPlatform.wiring.pushEvent("OutputStatus", JSON.stringify(config));
@@ -247,7 +252,8 @@
                         'id': 0,
                         'value': [elem.date, elem.value],
                         'label': observed_prop,
-                        'axis': 1
+                        'axis': 1,
+                        'color': '#CB4B4B'
                     });
                 }
         	}
